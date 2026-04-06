@@ -1,9 +1,9 @@
-import { productsData } from "../data/data";
+//import { productsData } from "../data/data";
 import { useState } from "react";
 import ProductModal  from "./ProductModal";
 
-function ProductPage() {
-    const [products, setProducts] = useState(productsData);
+function ProductPage({ products, setProducts}) {
+    //const [products, setProducts] = useState(productsData);
     const [formData, setFormData] = useState({
         name: "",
         catagory: "",
@@ -124,8 +124,11 @@ function ProductPage() {
                                     <span className={item.active ? "badge active" : "badge inactive"}>{item.active ? "Active" : "Out Of Stock"} </span>
                                 </td>
                                 <td>
+                                    <div className="action-buttons">
                                     <button className="edit-btn" onClick={() => openEditForm(item)}> Edit</button>
                                     <button className="delete-btn" onClick={() => deleteProduct(item.id)}>Delete</button>
+                                </div>
+
                                 </td>
                             </tr>
 

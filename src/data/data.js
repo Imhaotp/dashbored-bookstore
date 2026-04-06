@@ -68,8 +68,8 @@ export const productsData = [
         catagory: "روايات",
         author: "Leo Tolstoy",
         price: "275",
-        stock: "0",
-        active: false
+        stock: "4",
+        active: true
     },
     {
         id: 9,
@@ -92,65 +92,74 @@ export const productsData = [
 ];
 export const OrdersData = [
     {
-        id: 1,
-        product_id: 1,
-        quantity: 2,
-        active: true
+        id: "ORD-001",
+        customerName: "Abdullah Alharbi" ,
+        email: "AbdullahAlharbi@gmail.com" ,
+        date: "23-01-2026",
+        status:"completed",
+        items: [
+            {product:"The Great Gatsby", qty: 1, price: 190},
+              {product:"Crime and Punishment", qty: 1, price: 220},
+        ]
+    },
+      {
+        id: "ORD-002",
+        customerName: "Khalied Alharbi" ,
+        email: "KhaliedAlharbi@gmail.com" ,
+        date: "24-01-2026",
+        status:"pending",
+        items: [
+            {product:"The Great Gatsby", qty: 1, price: 190},
+              {product:"Crime and Punishment", qty: 1, price: 220},
+        ]
+    },
+      {
+        id: "ORD-003",
+        customerName: "Yousef Aljahni" ,
+        email: "YousefAljahni@gmail.com" ,
+        date: "24-01-2026",
+        status:"cancelled",
+        items: [
+            {product:"The Great Gatsby", qty: 1, price: 190},
+              {product:"Crime and Punishment", qty: 1, price: 220},
+        ]
     },
     {
-        id: 2,
-        product_id: 2,
-        quantity: 1,
-        active: true
+        id: "ORD-004",
+        customerName: "Amal Abdullah" ,
+        email: "AmalAbdullah@gmail.com" ,
+        date: "23-01-2026",
+        status:"completed",
+        items: [
+            {product:"The Great Gatsby", qty: 1, price: 190},
+              {product:"Crime and Punishment", qty: 1, price: 220},
+        ]
     },
     {
-        id: 3,
-        product_id: 3,
-        quantity: 3,
-        active: true
+        id: "ORD-005",
+        customerName: "Basel Abdullah" ,
+        email: "BaselAbdullah@gmail.com" ,
+        date: "23-01-2026",
+        status:"completed",
+        items: [
+            {product:"The Great Gatsby", qty: 1, price: 190},
+              {product:"Crime and Punishment", qty: 1, price: 220},
+        ]
     },
-    {
-        id: 4,
-        product_id: 4,
-        quantity: 1,
-        active: true
+   {
+        id: "ORD-006",
+        customerName: "Manal  Alrougui" ,
+        email: "ManalAlrougui@gmail.com" ,
+        date: "23-01-2026",
+        status:"completed",
+        items: [
+            {product:"The Great Gatsby", qty: 1, price: 190},
+              {product:"Crime and Punishment", qty: 1, price: 220},
+              {product:"Leo Tolstoy", qty: 1, price: 275},
+        ]
     },
-    {
-        id: 5,
-        product_id: 5,
-        quantity: 0,
-        active: false
-    },
-    {
-        id: 6,
-        product_id: 6,
-        quantity: 4,
-        active: true
-    },
-    {
-        id: 7,
-        product_id: 7,
-        quantity: 2,
-        active: true
-    },
-    {
-        id: 8,
-        product_id: 8,
-        quantity: 0,
-        active: false
-    },
-    {
-        id: 9,
-        product_id: 9,
-        quantity: 5,
-        active: true
-    },
-    {
-        id: 10,
-        product_id: 10,
-        quantity: 2,
-        active: true
-    }
+    
+
 ];
 
 export const navItems = [

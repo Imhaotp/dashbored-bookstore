@@ -35,36 +35,36 @@ function BooksAPI() {
     return () => clearTimeout(timer);
   }, [searchQuery]);
 
- 
- /* const fetchBooks = (title) => {
-    setLoading(true);
-    setShowDropdown(false);
 
-    fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${title}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.items) {
-          setBooks(data.items);
-        } else {
-          setBooks([]);
-        }
-      })
-      .catch((err) => console.error(err))
-      .finally(() => setLoading(false));
-  };*/
+  /* const fetchBooks = (title) => {
+     setLoading(true);
+     setShowDropdown(false);
+ 
+     fetch(
+       `https://www.googleapis.com/books/v1/volumes?q=${title}`
+     )
+       .then((res) => res.json())
+       .then((data) => {
+         if (data.items) {
+           setBooks(data.items);
+         } else {
+           setBooks([]);
+         }
+       })
+       .catch((err) => console.error(err))
+       .finally(() => setLoading(false));
+   };*/
 
   const handleBookSelect = (book) => {
     setSelectedBook(book);
     setSearchQuery(book.volumeInfo.title);
     setShowDropdown(false);
-    //fetchBooks(book.volumeInfo.title);
+
   };
 
   return (
     <div style={{ width: "400px", margin: "40px auto" }}>
-     
+
       <input
         type="text"
         placeholder="Search for a book..."
@@ -74,9 +74,9 @@ function BooksAPI() {
       />
       <p>{books.length}</p>
 
-     
+
       {showDropdown && (
-        <div style={{ border: "1px solid #ccc", marginTop: "5px", position: "absolute", background: "#fff", width: "100%", zIndex: 1000 }}>
+        <div style={{ border: "1px solid #ccc", marginTop: "5px", position: "absolute", background: "#fff", width: "50%", zIndex: 1000 }}>
           {searchLoading ? (
             <p>Searching...</p>
           ) : (
@@ -93,7 +93,7 @@ function BooksAPI() {
         </div>
       )}
 
-     
+
       {selectedBook && (
         <div style={{ marginTop: "20px" }}>
           <h2>{selectedBook.volumeInfo.title}</h2>
@@ -108,7 +108,7 @@ function BooksAPI() {
         </div>
       )}
 
-      
+
     </div>
   );
 }

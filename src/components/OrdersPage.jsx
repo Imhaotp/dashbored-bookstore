@@ -1,10 +1,12 @@
 import { OrdersData } from "../data/data";
 import { useState } from "react";
-
 function OrdersPage() {
     const [orders, setOrders] = useState(OrdersData);
     const deleteOrder = (id) => {
         setOrders(orders.filter((o) => o.id !== id));
+    };
+    const calculateTotal = (items) => {
+        return items.reduce((sum ,item) => sum + (item.price * item.qty) ,0);
     }
     return (
         <div>
@@ -15,26 +17,44 @@ function OrdersPage() {
             <table className="table">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Product ID</th>
-                        <th>Quantity</th>
-                        <th>Active</th>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Items</th>
+                        <th>Total</th>
+                        <th>Date</th>
+                        <th>Status</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {orders.map((item) => (
-                        <tr key={item.id}>
-                            <td>{item.id}</td>
-                            <td>{item.product_id}</td>
-                            <td>{item.quantity}</td>
+                    {orders.map((order) => (
+                        <tr key={order.id}>
+                            <td>{order.id}</td>
                             <td>
-                                <span className={item.active ? "badge active" : "badge inactive"}>{item.active ? "Active" : "Inactive"} </span>
+                                <div>
+                                    <strong>{order.customerName}</strong>
+                                    <br />
+                                    <small style={{ color: "#666" }}>{order.email}</small>
+                                </div>
+                            </td>
+                            <td>{order.items.length} items</td>
+                            <td>{calculateTotal(order.items).toLocaleString('en-SA', { style: 'currency', currency: 'SAR' })}</td> 
+                            {/*.toFixed(2)}ر.س</td>*/}
+                            <td>{order.date}</td>
+                            <td>
+                                <span className={order.status === "completed" ? "badge active" :
+                                    order.status === "pending" ? "badge pending" : "badge inactive"
+                                }>
+                                    {order.status} </span>
                             </td>
                             <td>
-                                <button className="edit-btn"> Edit</button>
-                                <button className="delete-btn" onClick={() => deleteOrder(item.id)}>Delete</button>
-                            </td>
+                                <div style={{display: "flex", alignItems: "center", gap: "8px"}}>
+                                    <i className="fas fa-eye" style={{cursor: "pointer", color: "#666"}}></i>
+                                    <span>View</span>
+                                    </div>
+
+                                
+                                       </td>
                         </tr>
 
 
