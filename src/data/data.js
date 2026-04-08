@@ -44,6 +44,7 @@ export const productsData = [
         stock: "0",
         active: false
     },
+
     {
         id: 6,
         name: "Crime and Punishment",
@@ -95,7 +96,7 @@ export const OrdersData = [
         id: "ORD-001",
         customerName: "Abdullah Alharbi" ,
         email: "AbdullahAlharbi@gmail.com" ,
-        date: "23-01-2026",
+        date: "20-01-2026",
         status:"completed",
         items: [
             {product:"The Great Gatsby", qty: 1, price: 190},
@@ -106,7 +107,7 @@ export const OrdersData = [
         id: "ORD-002",
         customerName: "Khalied Alharbi" ,
         email: "KhaliedAlharbi@gmail.com" ,
-        date: "24-01-2026",
+        date: "20-01-2026",
         status:"pending",
         items: [
             {product:"The Great Gatsby", qty: 1, price: 190},
@@ -117,7 +118,7 @@ export const OrdersData = [
         id: "ORD-003",
         customerName: "Yousef Aljahni" ,
         email: "YousefAljahni@gmail.com" ,
-        date: "24-01-2026",
+        date: "23-01-2026",
         status:"cancelled",
         items: [
             {product:"The Great Gatsby", qty: 1, price: 190},
@@ -139,7 +140,7 @@ export const OrdersData = [
         id: "ORD-005",
         customerName: "Basel Abdullah" ,
         email: "BaselAbdullah@gmail.com" ,
-        date: "23-01-2026",
+        date: "24-01-2026",
         status:"completed",
         items: [
             {product:"The Great Gatsby", qty: 1, price: 190},
@@ -150,12 +151,35 @@ export const OrdersData = [
         id: "ORD-006",
         customerName: "Manal  Alrougui" ,
         email: "ManalAlrougui@gmail.com" ,
-        date: "23-01-2026",
+        date: "24-01-2026",
         status:"completed",
         items: [
             {product:"The Great Gatsby", qty: 1, price: 190},
               {product:"Crime and Punishment", qty: 1, price: 220},
               {product:"Leo Tolstoy", qty: 1, price: 275},
+        ]
+    },
+      {
+        id: "ORD-007",
+        customerName: "Manal  Alrougui" ,
+        email: "ManalAlrougui@gmail.com" ,
+        date: "23-02-2026",
+        status:"completed",
+        items: [
+            {product:"The Great Gatsby", qty: 1, price: 190},
+              {product:"Crime and Punishment", qty: 1, price: 220},
+              {product:"Leo Tolstoy", qty: 1, price: 275},
+        ]
+    },
+     {
+        id: "ORD-008",
+        customerName: "Lana Yousef" ,
+        email: "LanaYousef@gmail.com" ,
+        date: "23-02-2026",
+        status:"cancelled",
+        items: [
+            {product:"The Great Gatsby", qty: 1, price: 190},
+              {product:"Crime and Punishment", qty: 1, price: 220},
         ]
     },
     

@@ -14,7 +14,7 @@ function BooksAPI() {
     if (searchQuery.length < 2) {
       setBooks([]);
       setShowDropdown(false);
-      return;
+      returns;
     }
 
     setSearchLoading(true);
@@ -34,26 +34,6 @@ function BooksAPI() {
 
     return () => clearTimeout(timer);
   }, [searchQuery]);
-
-
-  /* const fetchBooks = (title) => {
-     setLoading(true);
-     setShowDropdown(false);
- 
-     fetch(
-       `https://www.googleapis.com/books/v1/volumes?q=${title}`
-     )
-       .then((res) => res.json())
-       .then((data) => {
-         if (data.items) {
-           setBooks(data.items);
-         } else {
-           setBooks([]);
-         }
-       })
-       .catch((err) => console.error(err))
-       .finally(() => setLoading(false));
-   };*/
 
   const handleBookSelect = (book) => {
     setSelectedBook(book);

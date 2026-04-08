@@ -5,6 +5,7 @@ import BooksAPI from "./BooksAPI"
 import { OrdersData } from "../data/data"
 //import { productsData } from "../data/data"
 import OrderStatus from "./OrderStatus"
+import RevenueChart from "./charts/RevenueChart";
 
 function MainContent({ activePage , products, setProducts}) {
     const totalProduct = products.length; //productsData.length;
@@ -15,6 +16,8 @@ function MainContent({ activePage , products, setProducts}) {
     const orderTotal = order.items.reduce((sum, item) => sum + (item.price * item.qty), 0);
     return total + orderTotal;
     }, 0);
+    
+
     if (activePage === "products") {
         return (
             <main className="main">
@@ -35,7 +38,25 @@ function MainContent({ activePage , products, setProducts}) {
                 <BooksAPI />
             </main>
         )
+    };
+    
+const groupedData = Object.values(
+  OrdersData.reduce((acc, order) => {
+    const total = order.items.reduce(
+      (sum, item) => sum + item.price * item.qty,
+      0
+    );
+
+    if (!acc[order.date]) {
+      acc[order.date] = { date: order.date, total: 0 };
     }
+
+    acc[order.date].total += total;
+
+    return acc;
+  }, {})
+);
+
     return (
         <main className="main-content">
             <h2>Admin Dashboard</h2>
@@ -43,9 +64,10 @@ function MainContent({ activePage , products, setProducts}) {
 
                 <StatCard title="total Products" value={totalProduct} />
                 <StatCard title="total Order" value={totalOrder} />
-                <StatCard title="total Revenue" value={`$${revenue.toFixed(2)}`} />
+                <StatCard title="total Revenue" value={`SAR ${revenue.toFixed(2)}`}  />
             </div>
             <OrderStatus orders={OrdersData}/>
+            <RevenueChart data={groupedData} />
         </main>
 
     )
