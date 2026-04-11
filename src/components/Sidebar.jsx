@@ -1,25 +1,35 @@
-import { navItems }  from "../data/data"
+import { navItems } from "../data/data";
+import { FaSignOutAlt } from "react-icons/fa";
 
 function SideBar({ activePage, onPageChange, onLogout }) {
-   
+
 
     return (
         <aside className="sidebar">
             <h2 className="brand">Admin</h2>
             <nav>
                 <ul className="nav-list">
-                    {navItems.map((item) => (
-                        <li
-                            key={item.id}
-                            className={activePage === item.id ? "nav-item active" : "nav-title"}
-                            onClick={() => onPageChange(item.id)}>
-                            {item.label}
+                    {navItems.map((item) => {
+                        const Icon = item.icon;
 
-                        </li>
+                        return (
+                            <li
+                                key={item.id}
+                                className={activePage === item.id ? "nav-item active" : "nav-item"}
+                                onClick={() => onPageChange(item.id)}
+                            >
+                                <Icon />
+                                <span>{item.label}</span>
+                            </li>
+                        );
+                    })}
+                    <FaSignOutAlt 
+  onClick={onLogout}
+  className="logout-icon"
+  role="button"
+  tabIndex={0}
+/>
 
-
-                    ))}
-                    <button className="Logout-btn" onClick={onLogout}>Logout</button>
                 </ul>
             </nav>
         </aside>

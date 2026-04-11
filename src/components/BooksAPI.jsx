@@ -14,7 +14,7 @@ function BooksAPI() {
     if (searchQuery.length < 2) {
       setBooks([]);
       setShowDropdown(false);
-      returns;
+      return;
     }
 
     setSearchLoading(true);
@@ -34,6 +34,9 @@ function BooksAPI() {
 
     return () => clearTimeout(timer);
   }, [searchQuery]);
+
+
+  
 
   const handleBookSelect = (book) => {
     setSelectedBook(book);

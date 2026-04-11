@@ -1,3 +1,6 @@
+import { MdDashboard, MdShoppingCart } from "react-icons/md";
+import { FaBox, FaBook } from "react-icons/fa";
+
 export const productsData = [
     {
         id: 1,
@@ -187,8 +190,8 @@ export const OrdersData = [
 ];
 
 export const navItems = [
-    { id : "dashbored", label : "Dashbored"},
-     { id : "products", label : "Products"},
-      { id : "orders", label : "Orders"},
-       { id : "books", label : "BooksAPI"},
-]
+  { id: "dashboard", label: "Dashboard", icon: MdDashboard },
+  { id: "products", label: "Products", icon: FaBox },
+  { id: "orders", label: "Orders", icon: MdShoppingCart },
+  { id: "books", label: "BooksAPI", icon: FaBook },
+];
